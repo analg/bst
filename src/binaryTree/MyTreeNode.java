@@ -13,6 +13,9 @@ public class MyTreeNode<E> implements TreeNodeI<E> {
 		$value = newValue;
 	}
 
+	public MyTreeNode() {
+	}
+
 	@Override
 	public TreeNodeI<E> getLeftChild() {
 		return $left;
@@ -25,14 +28,36 @@ public class MyTreeNode<E> implements TreeNodeI<E> {
 
 	@Override
 	public void setLeftChild(TreeNodeI<E> node) {
+
+		boolean leftNull = node == null;
 		$left = node;
-		$isLeaf = false;
+
+		if (!leftNull) {
+			node.setParent(this);
+		}
+		if (leftNull && $right == null) {
+			$isLeaf = true;
+		}
+		else {
+			$isLeaf = false;
+		}
 	}
 
 	@Override
 	public void setRightChild(TreeNodeI<E> node) {
+
+		boolean rightNull = node == null;
 		$right = node;
-		$isLeaf = false;
+
+		if (!rightNull) {
+			node.setParent(this);
+		}
+		if (rightNull && $left == null) {
+			$isLeaf = true;
+		}
+		else {
+			$isLeaf = false;
+		}
 	}
 
 	@Override

@@ -94,17 +94,28 @@ public class MyBinaryTree<E extends Comparable<E>> implements BinarySearchTreeSt
 		$root = newRoot;
 	}
 
+//	@Override
+//	public boolean add(E value) {
+//		if ($root == null) {
+//			$root = new MyTreeNode<E>(value);
+//			return true;
+//		}
+//		boolean added = addToNode($root, value);
+//		if (added) {
+//			$size++;
+//		}
+//		return added;
+//	}
+
 	@Override
-	public boolean add(E value) {
+	public void add(E value) {
 		if ($root == null) {
 			$root = new MyTreeNode<E>(value);
-			return true;
+			return;
 		}
-		boolean added = addToNode($root, value);
-		if (added) {
+		if (addToNode($root, value)) {
 			$size++;
 		}
-		return added;
 	}
 
 	protected boolean addToNode(TreeNodeI node, Comparable value) {

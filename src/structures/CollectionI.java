@@ -13,7 +13,7 @@ public interface CollectionI<V> extends Iterable<V> {
 	 * Add an element to the Collection
 	 * @param val value to add 
 	 */
-	public boolean add(V val);
+	public void add(V val);
 	
 	/**
 	 * Determine if an element is in the collection, using .equals()
